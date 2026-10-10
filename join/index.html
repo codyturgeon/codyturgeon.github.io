@@ -1,0 +1,42 @@
+<!doctype html>
+<!-- Static fallback for https://<invite-host>/join/<CODE>. Host this same file for every /join/* path.
+     TODO: replace APP_STORE_URL below. If the app is installed, the Universal Link opens it directly and this page is not shown. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join your partner on Entwined</title>
+  <style>
+    body { font-family: -apple-system, system-ui, sans-serif; background: #121214; color: #fff; margin: 0; padding: 32px 20px; text-align: center; }
+    main { max-width: 420px; margin: 0 auto; }
+    .code { font-size: 28px; letter-spacing: 3px; font-weight: 700; margin: 16px 0; }
+    a.button { display: inline-block; background: #10b981; color: #fff; text-decoration: none; padding: 14px 24px; border-radius: 12px; font-weight: 600; margin: 8px 0; }
+    p { color: #ddd; line-height: 1.5; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Join your partner on Entwined</h1>
+  <p>Your partner invited you to share calendars. Joining is free.</p>
+  <div id="code" class="code"></div>
+  <a id="open" class="button" href="#">Open Entwined</a>
+  <p>Don't have the app yet?</p>
+  <a class="button" id="store" href="https://apps.apple.com/app/idAPP_ID_TODO">Get Entwined on the App Store</a>
+  <p id="hint">After installing, open Entwined and enter the code above, or come back to this page and tap Open Entwined.</p>
+</main>
+<script>
+  // Code is the last path segment of /join/<CODE>: 10 hex characters.
+  var m = location.pathname.match(/\/join\/([0-9a-fA-F]{10})\/?$/);
+  var code = m ? m[1].toUpperCase() : null;
+  if (code) {
+    document.getElementById('code').textContent = code;
+    var deep = 'entwined://join/' + code;
+    document.getElementById('open').href = deep;
+    window.location.href = deep; // try to open the app; if it is not installed nothing happens and this page stays
+  } else {
+    document.getElementById('open').style.display = 'none';
+    document.getElementById('hint').textContent = 'This invite link looks incomplete. Ask your partner to send it again.';
+  }
+</script>
+</body>
+</html>
