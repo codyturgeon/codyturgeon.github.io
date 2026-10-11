@@ -1,11 +1,11 @@
 <!doctype html>
-<!-- Static fallback for https://<invite-host>/join/<CODE>. Host this same file for every /join/* path.
-     TODO: replace APP_STORE_URL below. If the app is installed, the Universal Link opens it directly and this page is not shown. -->
+<!-- Fallback for https://codyturgeon.github.io/join/<CODE> (served via 404.html on GitHub Pages). If the app is installed, the Universal Link opens it directly and this page is not shown.
+     Set STORE_URL below to the App Store link once the app is live; until then the page says 'Coming soon on the App Store'. -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Join your partner on Entwined</title>
+  <title>Entwined</title>
   <style>
     body { font-family: -apple-system, system-ui, sans-serif; background: #121214; color: #fff; margin: 0; padding: 32px 20px; text-align: center; }
     main { max-width: 420px; margin: 0 auto; }
@@ -21,10 +21,14 @@
   <div id="code" class="code"></div>
   <a id="open" class="button" href="#">Open Entwined</a>
   <p>Don't have the app yet?</p>
-  <a class="button" id="store" href="https://apps.apple.com/app/idAPP_ID_TODO">Get Entwined on the App Store</a>
+  <a class="button" id="store" href="#">Get Entwined on the App Store</a>
+  <p id="soon" style="display:none"><strong>Coming soon on the App Store</strong></p>
   <p id="hint">After installing, open Entwined and enter the code above, or come back to this page and tap Open Entwined.</p>
 </main>
 <script>
+  var STORE_URL = ''; // e.g. 'https://apps.apple.com/app/id1234567890' once the app is live
+  if (STORE_URL) document.getElementById('store').href = STORE_URL;
+  else { document.getElementById('store').style.display = 'none'; document.getElementById('soon').style.display = ''; }
   // Code is the last path segment of /join/<CODE>: 10 hex characters.
   var m = location.pathname.match(/\/join\/([0-9a-fA-F]{10})\/?$/);
   var code = m ? m[1].toUpperCase() : null;
@@ -35,7 +39,13 @@
     window.location.href = deep; // try to open the app; if it is not installed nothing happens and this page stays
   } else {
     document.getElementById('open').style.display = 'none';
-    document.getElementById('hint').textContent = 'This invite link looks incomplete. Ask your partner to send it again.';
+    document.getElementById('code').style.display = 'none';
+    document.getElementById('store').style.display = 'none'; document.getElementById('soon').style.display = 'none';
+    if (!/^\/join\//.test(location.pathname)) document.querySelectorAll('main > p').forEach(function (p, i) { if (i > 0 && p.id !== 'hint') p.style.display = 'none'; });
+    var inJoin = /^\/join\//.test(location.pathname);
+    document.querySelector('h1').textContent = inJoin ? 'Join your partner on Entwined' : 'Page not found';
+    document.querySelector('main > p').textContent = inJoin ? '' : 'This page does not exist.';
+    document.getElementById('hint').textContent = inJoin ? 'This invite link looks incomplete. Ask your partner to send it again.' : 'Go to codyturgeon.github.io.';
   }
 </script>
 </body>
