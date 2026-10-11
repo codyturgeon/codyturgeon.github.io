@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["5669R57V78.com.codyturgeon.entwinedcalendars"],
+        "components": [{ "/": "/join/*" }]
+      }
+    ]
+  }
+}
