@@ -2,8 +2,8 @@
 h1,h2,h3{line-height:1.25}a{color:#0a7f5a}table{border-collapse:collapse}td,th{border:1px solid #ddd;padding:6px 10px}
 .banner{background:#fff4d6;border:1px solid #e6c15a;padding:10px 14px;border-radius:8px;margin-bottom:24px;font-weight:600}
 nav a{margin-right:14px}blockquote{background:#f6f6f6;margin:0 0 20px;padding:8px 14px;border-left:4px solid #bbb}</style></head><body><nav><a href="/">Entwined</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="/support/">Support</a></nav><h1>Privacy Policy — Entwined: Shared Calendars</h1>
-<p><strong>Effective date:</strong> October 10, 2026
-<strong>Last updated:</strong> October 10, 2026</p>
+<p><strong>Effective date:</strong> October 11, 2026
+<strong>Last updated:</strong> October 11, 2026</p>
 <p>This policy explains what information the iOS app <strong>Entwined: Shared Calendars</strong> ("Entwined", "the app") collects, how it is used, and the choices you have. The app is published by <strong>Cody Turgeon</strong> ("we", "us").</p>
 <ul>
 <li>Bundle ID: com.codyturgeon.entwinedcalendars</li>
@@ -32,7 +32,7 @@ nav a{margin-right:14px}blockquote{background:#f6f6f6;margin:0 0 20px;padding:8p
 <p>Please keep in mind that event titles can contain personal details (for example, "Doctor appointment"). Any event title in a calendar you share will be visible to your paired partner.</p>
 <h3>1.2 Account and pairing information</h3>
 <ul>
-<li><strong>Account identifier.</strong> The app signs you in anonymously, which creates a user ID in our backend without asking for your name or email.</li>
+<li><strong>Account identifier (Sign in with Apple).</strong> To pair with a partner and sync, you sign in with Apple. Apple gives us a stable, app-specific user identifier and, depending on your choice, may share an email address (your real one or an Apple private relay address). We use the identifier to run your account. We do not request or store your name, and we do not store your email address in our own tables (our authentication provider, Supabase, may hold the email Apple provides as part of the account record). If you skip sign-in, the app works only on your device and nothing is uploaded.</li>
 <li><strong>Profile.</strong> We store no profile fields beyond your account identifier and when it was created.</li>
 <li><strong>Couple membership.</strong> When you pair with your partner using an invite code, we store the link between your two accounts so each of you can see the other's shared events.</li>
 </ul>
@@ -88,8 +88,8 @@ nav a{margin-right:14px}blockquote{background:#f6f6f6;margin:0 0 20px;padding:8p
 </tr>
 <tr>
 <td><strong>Apple</strong></td>
-<td>App distribution, in-app purchase payment, and push notification delivery (APNs)</td>
-<td>Purchase and payment information under Apple's own privacy policy</td>
+<td>App distribution, in-app purchase payment, push notification delivery (APNs), and Sign in with Apple</td>
+<td>Purchase and payment information under Apple's own privacy policy; the identifier and optional email Apple provides when you sign in</td>
 </tr>
 </tbody>
 </table>
@@ -107,7 +107,8 @@ nav a{margin-right:14px}blockquote{background:#f6f6f6;margin:0 0 20px;padding:8p
 <li><strong>Choose what to share.</strong> You can change which calendars are shared at any time in the app.</li>
 <li><strong>Calendar permission.</strong> You can turn off calendar access in iOS Settings. Without it, the app cannot read or sync your events.</li>
 <li><strong>Subscription.</strong> You can manage or cancel your subscription in your Apple ID subscription settings.</li>
-<li><strong>Delete your account.</strong> In the app, go to <strong>Settings → Delete account</strong>. Deleting your account deletes your shared events, push tokens, couple membership, profile, and authentication account from our backend. Deleting your account does not cancel an Apple subscription; cancel it in your Apple ID settings. When you delete your account or unpair, your partner stops seeing your shared events at their next sync, and the app removes the mirrored events and the "Entwined: Together" / "Entwined: Partner" calendars from your own device. Purchase and subscription records are kept by Apple and RevenueCat for accounting and legal purposes, and are not deleted when you delete your account.</li>
+<li><strong>Delete your account.</strong> In the app, go to <strong>Settings → Delete account</strong>. Deleting your account deletes your shared events, push tokens, couple membership, profile, and authentication account from our backend, and we revoke the Sign in with Apple connection for this app so it no longer appears as an active app in your Apple ID settings. When you delete your account or unpair, your partner stops seeing your shared events at their next sync, and the app removes the mirrored events and the "Entwined: Together" / "Entwined: Partner" calendars from your own device. Deleting your account does not cancel an Apple subscription; cancel it in your Apple ID settings. Purchase and subscription records are kept by Apple and RevenueCat for accounting and legal purposes, and are not deleted when you delete your account.</li>
+<li><strong>Sign out.</strong> In <strong>Settings → Sign out</strong> you can sign out on this iPhone. Your account and your partner's data stay on our servers; signing in with Apple again resumes sync. Signing out removes your partner's events from this iPhone's Entwined calendars.</li>
 <li><strong>Local data.</strong> Custom keywords and overrides are stored on your device and are removed when you delete the app.</li>
 <li><strong>Questions or requests.</strong> Email entwinedcalendars.support@gmail.com. Depending on where you live, you may have legal rights to access, correct, or delete your personal information.</li>
 </ul>
